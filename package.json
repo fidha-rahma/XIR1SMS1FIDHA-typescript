@@ -21,5 +21,17 @@
     "@types/node": "^26.1.1",
     "tsx": "^4.23.1",
     "typescript": "^7.0.2"
-  }
+  },
+  "dependencies": {
+    "esbuild": "^0.28.1",
+    "undici-types": "^8.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakaria29/learn-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zakaria29/learn-typescript/issues"
+  },
+  "homepage": "https://github.com/zakaria29/learn-typescript#readme"
 }

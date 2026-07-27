@@ -8,9 +8,36 @@
  * so this information should also be stored.
  * 
  * Task:
- * 
  * 1. dentify all values that should be stored as variables.
  * 2. Determine the most appropriate data type for each variable.
  * 3. Create the variable declarations using TypeScript.
  * 4. Display the student data using console.log.
  */
+
+const studentName: string = "Nadia Putri";
+const studentID: string = "ST2026045";
+const assignmentScore: number = 88.5;
+const midtermScore: number = 84;
+const finalExamScore: number = 91.5;
+const attendanceScore: number = 100;
+const participatesInExtracurricular: boolean = true;
+
+console.log("Student Name:", studentName);
+console.log("Student ID:", studentID);
+console.log("Assignment Score:", assignmentScore);
+console.log("Midterm Score:", midtermScore);
+console.log("Final Exam Score:", finalExamScore);
+console.log("Attendance Score:", attendanceScore);
+console.log("Participates in Extracurricular:", participatesInExtracurricular);
+
+/** 2. Determine the most appropriate data type for each variable.
+ * Data                                   Data Type             Reason
+ * Student Name                            String             Contains text
+ * Student ID                              String             Contains a letter prefix along with numbers, so it's not purely numeric
+ * Assignment Score                        Number             Contains a decimal values
+ * Midterm Score                           Number             Contains a numeric value
+ * Final Exam Score                        Number             Contains a decimal values
+ * Attendance Score                        Number             Contains a numeric value
+ * Participates in Extracurricular        Boolean             Represent yes or no (true or false) condition
+*/
+

@@ -14,3 +14,18 @@
  * 2. Store the participant data in a single collection.
  * 3. Display the participant data using console.log.
  */
+type Participant = {
+    studentID: string;
+    Name: string;
+    Age: number;
+    HasPaid: boolean;
+};  
+const participantData: Participant[] = [
+    { studentID: "ST001", Name: "Ahmad Fauzi", Age: 16, HasPaid: true },
+    { studentID: "ST002", Name: "Siti Nurhaliza", Age: 17, HasPaid: false },
+    { studentID: "ST003", Name: "Budi Santoso", Age: 16, HasPaid: true }
+];
+console.log("=== PARTICIPANT DATA ===");
+participantData.forEach((participant) => {
+    console.log(`Student ID: ${participant.studentID}, Name: ${participant.Name}, Age: ${participant.Age}, Has Paid: ${participant.HasPaid}`);
+});
