@@ -32,3 +32,16 @@
  *  - Implement the second screening only if the first screening is passed.
  *  - Display the correct result.
  */
+const StudentName: string = "Fajar Hidayat";
+const GPA: number = 3.86;
+const FamilyIncome: number = 4200000;
+const CompetitionCount: number = 4;
+const DisciplinaryRecord: boolean = false;
+const DoucumentComplete: boolean = true;
+
+/** First Screening */
+if (GPA > 3.75) {
+  console.log("Scholarship Approved");
+} else if (FamilyIncome <  5000000) {
+  console.log("Passed First Screening, but Failed Second Screening");
+}
