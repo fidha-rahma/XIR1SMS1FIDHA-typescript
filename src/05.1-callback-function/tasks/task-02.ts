@@ -1,3 +1,5 @@
+import { Cipheriv } from "node:crypto";
+
 /**
  * Teacher has list of student score:
  */
@@ -29,14 +31,27 @@ function processScores(
     scores: number[],
     callback: (score: number) => void
 ): void {
+    for (const score of scores){
+        callback(score);
+    }
     // implementation
 }
 
-function printScore(score: number) {
+function printScore(score: number): void {
+    console.log(`Score: ${score}`);
     // implementation
 }
 
-function showGrade(score: number) {
+function showGrade(score: number): void {
+    if (score >= 90){
+        console.log(`Score: ${score} - Grade: A`);
+    } else if (score >= 80) {
+        console.log(`Score: ${score} - Grade: B`);
+    } else if (score >= 70) {
+        console.log(`Score: ${score} - Grade: C`);
+    } else {
+        console.log(`Score: ${score} - Grade: D`);
+    }
     // implementation
 }
 

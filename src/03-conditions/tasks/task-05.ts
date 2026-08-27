@@ -39,9 +39,16 @@ const CompetitionCount: number = 4;
 const DisciplinaryRecord: boolean = false;
 const DoucumentComplete: boolean = true;
 
-/** First Screening */
-if (GPA > 3.75) {
-  console.log("Scholarship Approved");
-} else if (FamilyIncome <  5000000) {
-  console.log("Passed First Screening, but Failed Second Screening");
+if (GPA >= 3.75 && FamilyIncome < 5000000) {
+  if (
+    CompetitionCount >= 3 &&
+    DisciplinaryRecord === false &&
+    DoucumentComplete === true
+  ) {
+    console.log("Scholarship Approved");
+  } else {
+    console.log("Passed First Screening, but Failed Second Screening");
+  }
+}  else {
+  console.log("Failed First Screening")
 }

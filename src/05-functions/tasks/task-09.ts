@@ -63,3 +63,58 @@ const patients = [
         bill: 350000
     }
 ];
+type patient = {
+    id: string;
+    name: string;
+    age: number;
+    department: string;
+    admitted: boolean;
+    bill: number;
+};
+function getTotalPatient(patients: patient[]): number{
+    return patients.length;
+}
+function getTotalAdmittedPatients(patients: patient[]):number {
+    return patients.filter(patient => patient.admitted === true).length;
+}
+function getTotalDischargedPatients(patients: patient[]): number {
+    return patients.filter(patient => patient.admitted === false).length;
+}
+function getDepartmentCount(patients: patient[], department:string): number {
+    return patients.filter(patient => patient.department === department).length;
+}
+function getHighestBill(patients: patient[]): number {
+    return Math.max(...patients.map(patient => patient.bill));
+}
+function getLowestBill(patients: patient[]): number {
+    return Math.min(...patients.map(patient => patient.bill));
+}
+function getAverageBill(patients: patient[]): number {
+    const totalBill = patients.reduce((total, patient) => total + patient.bill, 
+    0);
+    return totalBill / patients.length;
+}
+function getTotalRevenu(patients: patient[]): number {
+    return patients.reduce(
+        (total, patient) => total + patient.bill, 0);
+}
+function getAdmittedPatientNames(patients: patient[]): string[] {
+    return patients
+        .filter(patient => patient.admitted === true)
+        .map(patient => patient.name);
+}
+function printHospitalReport(patients: patient[]): void {
+    console.log("===== HOSPITAL DAILY REPORT =====");
+    console.log("Total Patients:", getTotalPatient(patients));
+    console.log("Total Admitted Patients:", getTotalAdmittedPatients(patients));
+    console.log("Total Discharged Patients:", getTotalDischargedPatients(patients));
+    console.log("Pediatrics:", getDepartmentCount(patients, "Pediatrics"));
+    console.log("Cardiology:", getDepartmentCount(patients, "Cardiology"));
+    console.log("Orthopedics:", getDepartmentCount(patients, "Orthopedics"));
+    console.log("Highest Bill:", getHighestBill(patients));
+    console.log("Lowest Bill:", getLowestBill(patients));
+    console.log("Average Bill:", getAverageBill(patients));
+    console.log("Total Revenue:", getTotalRevenu(patients));
+    console.log("Admitted Patients:", getAdmittedPatientNames(patients).join(", "));
+}
+printHospitalReport(patients);

@@ -24,3 +24,30 @@ const scores = [
     67, 79, 94, 83, 71,
     96, 65, 87, 74, 90
 ];
+
+let gold = 0;
+let silver = 0;
+let bronze = 0;
+let noMedal = 0;
+let toatlScore = 0;
+
+for (const score of scores) {
+    toatlScore += score;
+
+    if (score >= 95) {
+        gold++;
+    } else if (score >= 85) {
+        silver++;
+    } else if (score >= 75) {
+        bronze++;
+    } else {
+        noMedal++;
+    }
+}
+const average = toatlScore / scores.length;
+
+console.log("Gold Medal Winners   :", gold);
+console.log("Silver Medal Winners :", silver);
+console.log("Bronze Medal Winners :", gold);
+console.log("No Medal             :", noMedal);
+console.log("Average Score        :", average.toFixed(2));

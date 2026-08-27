@@ -26,21 +26,34 @@ const sales = [
 ];
 
 function calculateTotalSales(sales: number[]): number {
-
+  return sales.reduce((total, sale) => total + sale, 0);
 }
 
 function findHighestTransaction(sales: number[]): number {
-
+  return Math.max(...sales);
 }
 
 function findLowestTransaction(sales: number[]): number {
-
+  return Math.min(...sales);
 }
 
 function calculateAverageSale(sales: number[]): number {
-
+  return calculateTotalSales(sales) / sales.length;
 }
 
-function countLargeTransactions(sales: number[], minimumAmount: number): number {
-
+function countLargeTransactions(
+  sales: number[],
+  minimumAmount: number
+): number {
+  return sales.filter((sale) => sale > minimumAmount).length;
 }
+
+function displayDashboard(sales: number[]): void {
+  console.log("=== DAILY SALES DASHBOARD ===");
+  console.log("Total Sales:", calculateTotalSales(sales));
+  console.log("Highest Transaction:", findHighestTransaction(sales));
+  console.log("Lowest Transaction:", findLowestTransaction(sales));
+  console.log("Average Transaction:", calculateAverageSale(sales));
+  console.log("Transactions Above Rp500,000:", countLargeTransactions(sales, 500000));
+}
+displayDashboard(sales);

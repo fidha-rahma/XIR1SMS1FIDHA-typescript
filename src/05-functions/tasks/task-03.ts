@@ -10,7 +10,14 @@
  * 4. Return the total price.
  * 5. Display the returned value.
  */
+function calculateTotalPrice(prices: number[]): number {
+    let total = 0;
 
+    for(let i = 0;i < prices.length;i++) {
+        total += prices[i];
+    }
+    return total;
+}
 const prices = [
     250000,
     180000,
@@ -18,3 +25,5 @@ const prices = [
     420000,
     125000
 ];
+const total = calculateTotalPrice(prices);
+console.log("Total Purchase:",total)

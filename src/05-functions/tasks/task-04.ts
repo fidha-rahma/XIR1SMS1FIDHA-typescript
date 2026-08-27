@@ -20,3 +20,24 @@ const attendances = [
     { name: "Dimas", present: true },
     { name: "Eka", present: false }
 ];
+function printAttendanceReport (attendances: {name: string; present: boolean; }[]): void {
+    let TotalPresent = 0;
+    let TotalAbsent = 0;
+    let NameStudent: string[] = [];
+
+    for (const attendance of attendances) {
+        if (attendance.present) {
+        TotalPresent++;
+        } else {
+        TotalAbsent++;
+        NameStudent.push(attendance.name);
+        }
+    }
+    console.log("=== Attandance Report ===");
+    console.log("Total Present:", TotalPresent);
+    console.log("Total Absent:", TotalAbsent);
+    console.log("Absent Student:", NameStudent.join(", "));
+
+}
+printAttendanceReport(attendances);
+

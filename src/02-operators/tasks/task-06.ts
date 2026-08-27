@@ -13,32 +13,32 @@
  * - Discount amount
  * - Final payment
  */
-// Customer Information
+// Customer Information  //
 const playingHours = 7;
 const playingMinutes = 35;
 const pricePerHour = 8000;
 
-// Calculate total playing time in minutes
+// Calculate total playing time in minutes //
 const totalPlayingTime = (playingHours * 60) + playingMinutes;
 
-// Calculate remaining minutes after full hours
+// Calculate remaining minutes after full hours //
 const remainingMinutes = totalPlayingTime % 60;
 
-// Calculate total billed hours
+// Calculate total billed hours //
 const billedHours = Math.ceil(totalPlayingTime / 60);
 
-// Calculate total payment before discount
+// Calculate total payment before discount //
 const totalPaymentBeforeDiscount = billedHours * pricePerHour;
 
-// Calculate discount
+// Calculate discount //
 const discount = billedHours > 5
   ? totalPaymentBeforeDiscount * 0.15
   : 0;
 
-// Calculate final payment
+// Calculate final payment //
 const finalPayment = totalPaymentBeforeDiscount - discount;
 
-// Display result
+// Display result //
 console.log("Total Playing Time:", totalPlayingTime, "minutes");
 console.log("Remaining Minutes:", remainingMinutes, "minutes");
 console.log("Total Billed Hours:", billedHours, "hours");
