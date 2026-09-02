@@ -26,3 +26,33 @@ const students = [
 ];
 
 const correctAnswers = ["A", "B", "C", "A", "B"];
+
+// 1. calculate student score
+const studentScores = students.map((student) => {
+    const correct = student.answers.filter(
+        (answer, index) => answer === correctAnswers[index]
+    ).length;
+    return {
+        name: student.name,
+        score: correct * 20,
+    };
+});
+console.log("1. Studnet Scores:", studentScores);
+
+// 2. get students that pass (> 70)
+const passStudents = studentScores.filter(
+    (student) => student.score > 70
+);
+console.log("2. Passed Students:", passStudents);
+
+// 3. find student who reach highest score
+const highestScore = Math.max(...studentScores.map((student) => student.score));
+const highestStudents = studentScores.find((student) => student.score === highestScore);
+console.log("3. Highest Score:", highestStudents);
+
+// 4. calculate class's average score
+const totalScore = studentScores.reduce(
+    (total, student) => total + student.score,0
+);
+const averageScore = totalScore / studentScores.length;
+console.log("4. Class Average:", averageScore);

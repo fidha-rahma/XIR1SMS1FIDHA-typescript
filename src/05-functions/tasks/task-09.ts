@@ -90,8 +90,7 @@ function getLowestBill(patients: patient[]): number {
     return Math.min(...patients.map(patient => patient.bill));
 }
 function getAverageBill(patients: patient[]): number {
-    const totalBill = patients.reduce((total, patient) => total + patient.bill, 
-    0);
+    const totalBill = patients.reduce((total, patient) => total + patient.bill, 0);
     return totalBill / patients.length;
 }
 function getTotalRevenu(patients: patient[]): number {

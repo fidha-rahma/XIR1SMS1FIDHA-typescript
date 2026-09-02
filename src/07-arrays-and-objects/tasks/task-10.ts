@@ -71,4 +71,72 @@ const submissions = [
         ],
     },
 ];
+// 1. Calculate each student's score
+const studentScores = submissions.map((submission) => {
+    const correct = submission.answers.filter((answer) => {
+        const question = questions.find((question) => question.id === answer.questionId);
+        return question?.correctAnswer === answer.answer;
+    }).length;
+    const score = correct * 25;
+    return {
+        student: submission.student,
+        score: score,
+    };
+});
+console.log("1. Student Scores:", studentScores);
 
+// 2. Determine each student's correct and wrong answers
+const answerResults = submissions.map((submission) => {
+    const correct = submission.answers.filter((answer) => {
+        const question = questions.find((question) => question.id === answer.questionId);
+        return question?.correctAnswer === answer.answer;
+    }).length;
+    const wrong = submission.answers.length - correct;
+    return {
+        student: submission.student,
+        correct: correct,
+        wrong: wrong,
+    };
+});
+console.log("2. Correct and Wrong Answers:", answerResults);
+
+// 3. Calculate the average score for each category
+const categories = [...new Set(questions.map((question) => question.category))];
+const categoryAverage = categories.map((category) => {
+    const categoryQuestions = questions.filter((question) => question.category === category);
+    const scores = submissions.map((submission) => {
+        const correct = submission.answers.filter((answer) => {
+            const question = categoryQuestions.find((question) => question.id === answer.questionId);
+            return question?.correctAnswer === answer.answer;
+        }).length;
+        return correct * 25;
+    });
+    const total = scores.reduce((sum, score) => sum + score, 0);
+    const average = total / scores.length;
+    return {
+        category: category,
+        averageScore: Number(average.toFixed(2)),
+    };
+});
+console.log("3. Average Score per Category:",categories);
+
+// 4. Generate final exam analytics
+const scores = studentScores.map((student) => student.score);
+const totalStudents = scores.length;
+const averageScore =
+    scores.reduce((total, score) => total + score, 0) / totalStudents;
+const highestScore = Math.max(...scores);
+const lowestScore = Math.min(...scores);
+const passedStudents = scores.filter((score) => score >= 75).length;
+const failedStudents = scores.filter((score) => score < 75).length;
+const passRate = (passedStudents / totalStudents) * 100;
+const finalAnalytics = {
+    totalStudents: totalStudents,
+    averageScore: Number(averageScore.toFixed(2)),
+    highestScore: highestScore,
+    lowestScore: lowestScore,
+    passedStudents: passedStudents,
+    failedStudents: failedStudents,
+    passRate: Number(passRate.toFixed(2)),
+};
+console.log("4. Final Exam Analytics:", finalAnalytics);

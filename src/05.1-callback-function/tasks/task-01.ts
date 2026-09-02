@@ -13,21 +13,17 @@ function registerStudent(
 
     callback(studentName);
 }
-
 /** The school provides the callback: */
 function showRegistrationMessage(name: string): void {
     console.log(`${name} successfully registered.`);
 }
-
 /** show registration message */
 registerStudent(`John Cena`, showRegistrationMessage)
-
 /** 
  * TASK:
  * create another function that display welcomming message for entire student!
  * Don't forget to implement callback function.
  * */
-
 function showWelcomeMessage(name: string): void {
     console.log(`Welcome to our school;, ${name}!`);
 }
